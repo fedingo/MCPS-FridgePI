@@ -1,0 +1,83 @@
+.NewNote {
+  padding-bottom: 15px;
+  margin: auto;
+  width: 50%;
+  font-size: 20px;
+}
+
+.title_page{
+  color: #ff8533;
+  font-size:30px;
+  font-weight: bold;
+  font-family: "Arial", serif;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+
+.textTitle{
+  color: #ff8533;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Arial", serif;
+  margin-bottom: 10px;
+}
+
+Form{
+  background-color:  #ffeecc;
+  border-style: outset;
+  border-color:  #ffd480;
+  border-radius: 10px;
+  width: 90%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.submitButton{
+  color:white;
+  font-family: "Arial", serif;
+  font-weight: bold;
+  background-color: orange;
+  border-radius: 12px;
+}
+
+.submitButton:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+button{
+  color:white;
+  font-family: "Arial", serif;
+  font-weight: bold;
+  background-color: orange;
+  border-radius: 12px;
+}
+
+button:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.list_container{
+  background-color:  #ffeecc;
+  border-style: outset;
+  border-color:  #ffd480;
+  border-radius: 10px;
+  width: 90%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+ul{
+  color:#ff8533;
+}
+
+li{
+  color:black;
+}

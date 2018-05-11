@@ -1,0 +1,35 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+}
+
+.btn-default{
+  color:white;
+  font-family: "Arial", serif;
+  font-weight: bold;
+  background-color: orange;
+  border-radius: 12px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+  background-color: orange;
+}
+
+.App .navbar-brand{
+  color:white;
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:white;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+  color:white;
+}

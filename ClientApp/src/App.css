@@ -1,0 +1,24 @@
+.App {
+  margin-top: 15px;
+}
+
+.App .navbar-brand {
+  font-weight: bold;
+}
+
+
+.container-fluid{
+  background-color: orange;
+}
+
+.navbar-header{
+  background-color: orange;
+}
+
+.navbar-collapse{
+  background-color: orange;
+}
+
+NavItem{
+  background-color: orange;
+}
