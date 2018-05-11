@@ -14,3 +14,12 @@ To start up the Web Server:
     ./web-server.py [<port>]
     ./web-server.py
     
+# 2 Client-side Application
+
+React web application
+
+# 2.2 Usage
+
+- change host variable in "App.js" file
+- To start up the application:
+    npm start
