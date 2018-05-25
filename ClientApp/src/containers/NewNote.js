@@ -23,8 +23,6 @@ export default class NewNote extends Component {
     this.handleChangeTextShelf = this.handleChangeTextShelf.bind(this);
     this.handleSubmitCode = this.handleSubmitCode.bind(this);
     this.handleClickRicette = this.handleClickRicette.bind(this);
-
-
   }
 
   validateForm() {
@@ -53,12 +51,9 @@ export default class NewNote extends Component {
           password: this.props.password
         }
       })
-  //  axios.get('http://192.168.1.105:8000/authenticate?username=topolino&password=pippo')
      .then(response =>{
         this.setState({lista: response.data.result})
         if(response.data.code===200){
-          console.log('Success!');
-        //  console.log(this.state.lista[0].list[0]);
 
           listTag.innerHTML="";
           for(var k=0; k<this.state.lista.length;k++){
@@ -67,6 +62,8 @@ export default class NewNote extends Component {
             for(var i=0; i<this.state.lista[k].list.length; i++)
               listTag.innerHTML += "<li>"+ this.state.lista[k].list[i]+"</li>";
             listTag.innerHTML+="</ul>";
+
+          console.log('Success!');
           }
         }
         else {
@@ -101,7 +98,6 @@ export default class NewNote extends Component {
           deviceID: this.state.value
         }
       })
-  //  axios.get('http://192.168.1.105:8000/authenticate?username=topolino&password=pippo')
      .then(response =>{
         this.setState({lista2: response.data.result})
         if(response.data.code===200){
@@ -127,22 +123,15 @@ export default class NewNote extends Component {
 
     return (
       <div className="NewNote">
-
-
-
       <h1 className="title_page">My Fridge</h1>
-
       <div className='button__container'>
         <div className='list_container'>
-
            <ul id="tabellina">
-
            </ul>
          </div>
-         <button className='button' onClick={this.handleClick}>Aggiorna</button>
+         <button className='button' onClick={this.handleClick}>Update</button>
          <button className='button' onClick={this.handleClickRicette}>Recipes</button>
       </div>
-
       <form onSubmit={this.handleSubmitCode} className="text-center">
           <label>
           <h3 className="textTitle">Insert a new device: </h3>
@@ -151,10 +140,7 @@ export default class NewNote extends Component {
           </label> <br/>
           <input className="submitButton" type="submit" value="Submit" />
         </form>
-
       </div>
     );
   }
 }
-
-//<li>{this.props.location.state.password} </li>

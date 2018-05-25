@@ -18,6 +18,6 @@ export default ({ childProps }) =>
     <AppliedRoute path="/lista" exact component={NewNote} props={childProps} />
     <AppliedRoute path="/recipes" exact component={Recipes} props={childProps} />
 
-    { /* Finally, catch all unmatched routes */ }
+    { /* Catch all unmatched routes */ }
     <Route component={NotFound} />
   </Switch>;
