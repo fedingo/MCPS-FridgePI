@@ -1,5 +1,7 @@
 import Mask_RCNN.model as modellib
 import Mask_RCNN.coco as coco
+import Mask_RCNN.visualize as visualize
+import os.path
 
 class InferenceConfig(coco.CocoConfig):
     # Set batch size to 1 since we'll be running inference on
@@ -29,6 +31,9 @@ class ImageRec:
     def __init__(self):
         model_path = "Mask_RCNN/mask_rcnn_coco.h5"
 
+        if not os.path.isfile(model_path):
+            raise ValueError(500, "Mask-RCNN missing image segmentation model")
+
         configuration = InferenceConfig()
 
         # Create model object in inference mode.
@@ -43,6 +48,10 @@ class ImageRec:
 
         result = self.model.detect([image], verbose=1)[0]
         result['objects'] = []
+
+        r = result
+        visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
+                                    self.class_names, r['scores'])
 
         for i in result['class_ids']:
             result['objects'].append(self.class_names[i])

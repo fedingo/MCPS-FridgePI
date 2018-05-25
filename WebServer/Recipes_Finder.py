@@ -19,7 +19,8 @@ def findRecipes(username, password, max_results):
     ingred_params = ""
 
     for item in ingredients:
-        ingred_params += item + ","
+        string = item.replace(' ','')
+        ingred_params += string + ","
 
     ingred = ingred_params[:-1]
 
@@ -33,3 +34,6 @@ def findRecipes(username, password, max_results):
     response = urlopen(request).read().decode()
 
     return json.loads(response)['recipes'][0:max_results]
+
+
+# http://food2fork.com/api/search?key=42fdbda9d0108cfcc9793dcc8051cd7f&q=tuna,beans,pasta
