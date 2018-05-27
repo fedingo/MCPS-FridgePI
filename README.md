@@ -23,3 +23,13 @@ React web application
 - change host variable in "App.js" file
 - To start up the application:
     npm start
+
+# 3 Raspberry-side Application
+
+- Store every file inside PiCode directory into your home raspberry directory.
+- Add a global variable ```$DEV_NAME``` as unique device identifier.
+- Run ```wps.sh``` at startup. (e.g. insert the command into ```/etc/rc.local``` )
+
+# 4 Documentation
+
+Slides from the final presentation and the poster are inside the Documents folder.
