@@ -5,6 +5,7 @@ import skimage.io
 import numpy as np
 import TensorRetrained as tr
 import Recipes_Finder as rf
+from PIL import Image, ImageFilter, ImageEnhance
 
 def function1(fields):
     print("function 1 called")
@@ -44,12 +45,18 @@ def sendImage(fields):
     result = connector.getUserFromDevice(deviceID)
 
     shelf = result['shelfName']
+
+    blurred_image = fields['image'].filter(ImageFilter.GaussianBlur(radius=3))
+    enhancer = ImageEnhance.Brightness(blurred_image)
+    blurred_image = enhancer.enhance(2)
+    blurred_image = np.array(blurred_image)
     image = np.array(fields['image'])
 
     recognizer = ir.ImageRec()
 
-    result = recognizer.recognize(image)
+    result = recognizer.recognize(blurred_image)
     arrayData = result['objects']
+    array = []
 
     for (border,label) in zip(result['rois'],result['objects']):
 
@@ -57,29 +64,17 @@ def sendImage(fields):
 
         print (label)
         top = border[0]
-        if top-sizes[0]*0.1 >=0:
-            top = int (top-sizes[0]*0.1)
-
         bottom = border[2]
-        if bottom+sizes[0]*0.1 < sizes[0]:
-            bottom = int(bottom+sizes[0]*0.1)
-
         left = border[1]
-        if left-sizes[1]*0.1 >=0:
-            left = int(left-sizes[1]*0.1)
-
         right = border[3]
-        if right+sizes[1]*0.1 < sizes[1]:
-            right = int(right+sizes[1]*0.1)
-
-
         subimage = image[top:bottom,left:right]
 
-        print(tr.analyse_image(subimage))
+        (label, prob) = tr.analyse_image(subimage)
+        print(label)
 
-    #tr.analyse_image(float_img)
+        array.append(label)
 
-    connector.updateStorage(shelf, arrayData)
+    connector.updateStorage(shelf, array)
 
     return "OK"
 
