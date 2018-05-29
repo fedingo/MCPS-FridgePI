@@ -19,7 +19,6 @@ export default class NewNote extends Component {
     this.onClickbutton = this.onClickbutton.bind(this);
   }
 
-
   onClickbutton(event){
     alert("ciao");
   }
@@ -34,12 +33,10 @@ export default class NewNote extends Component {
           password: this.props.password,
         }
       })
-  //  axios.get('http://192.168.1.105:8000/authenticate?username=topolino&password=pippo')
      .then(response =>{
         this.setState({content: response.data.result})
         if(response.data.code===200){
           console.log('Success!');
-
            listContainer.innerHTML="";
 
            for(var i=0; i<this.state.content.length;i++)
@@ -55,28 +52,6 @@ export default class NewNote extends Component {
              "<a class=\"linkButton\" href=\""+this.state.content[i].source_url+"\">Open Recipe "+
              "<span class=\"glyphicon glyphicon-search\" ></span> </a>"+
              "";
-
-      /*    listContainer.innerHTML="";
-          for(var i=0; i<this.state.content.length;i++){
-
-            var imageReveal = this.state.content[i].image_url;
-            listContainer.innerHTML+="<div class=\"immagini\" width=\"30\%\">";
-            listContainer.innerHTML+="<b>"+this.state.content[i].title+"</b> "+
-            "<a class=\"linkButton\" href=\""+this.state.content[i].source_url+"\">Cazzo "+
-            "<span class=\"glyphicon glyphicon-search\" ></span> </a><br></br> ";
-            listContainer.innerHTML+="<Image src=\"" + imageReveal + " \" width=\"50\%\"/>"+"</div>";
-
-            //<Glyphicon glyph="align-left" />
-
-          /*  listContainer.innerHTML+="<img src=";
-            listContainer.innerHTML+="\"";
-            listContainer.innerHTML+=this.state.content[0].image_url;
-            listContainer.innerHTML+="\" alt=\"ciao\"/>";
-*/
-
-
-            //href=\""+this.state.content[i].source_url+"\"
-            //listContainer.innerHTML+="</div>";
           }
         }
         else {
@@ -84,10 +59,7 @@ export default class NewNote extends Component {
           console.log("Erroe in Recipes");
         }
       })
-
-
   }
-
 
   render() {
     return (
@@ -98,10 +70,8 @@ export default class NewNote extends Component {
         <div  className="container_img" id="container1">
 
          </div>
-          <button className='button' onClick={this.handleRecipes}>Aggiorna</button>
+          <button className='button' onClick={this.handleRecipes}>Update</button>
       </div>
     );
   }
 }
-
-//<li>{this.props.location.state.password} </li>

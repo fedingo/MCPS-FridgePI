@@ -1,5 +1,5 @@
 # MCPS-FridgePI
-Client and Server side applications for the Smart Fridge project for the Mobile and Cyber Physical System course
+Client and Server side applications and Rasperry scripts for the Smart Fridge project for the Mobile and Cyber Physical System class.
 
 # 1 Server-Side Application
 
@@ -16,10 +16,27 @@ To start up the Web Server:
     
 # 2 Client-side Application
 
-React web application
+React web interface for the user view.
+Features:
+- registration of a new user
+- login of a user
+- products list visualization
+- addition of a new device
+- recipes suggestions
 
 # 2.2 Usage
 
-- change host variable in "App.js" file
+- Change ```host``` variable in "App.js" file
+- Install with ```npm install```
 - To start up the application:
-    npm start
+    ```npm start```
+
+# 3 Raspberry-side Application
+
+- Store every file inside PiCode directory into your home raspberry directory.
+- Add a global variable ```$DEV_NAME``` as unique device identifier.
+- Run ```wps.sh``` at startup. (e.g. insert the command into ```/etc/rc.local``` )
+
+# 4 Documentation
+
+Slides from the final presentation and the poster are inside the Documents folder.

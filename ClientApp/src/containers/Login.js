@@ -38,7 +38,7 @@ handleSubmit = async event => {
     this.setState({ isLoading: true });
     try {
       this.props.userHasAuthenticated(true);
-      
+
       console.log(this.state.email);
       console.log(this.state.password);
       this.props.userInsert(this.state.email);
@@ -50,7 +50,6 @@ handleSubmit = async event => {
             password: this.state.password
           }
         })
-    //  axios.get('http://192.168.1.105:8000/authenticate?username=topolino&password=pippo')
        .then(response =>{ this.setState({api: response.data.code})
 
 
@@ -110,60 +109,3 @@ handleSubmit = async event => {
     );
   }
 }
-
-
-
-
-/*
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
-import DocumentTitle from 'react-document-title'
-
-
-// As a quick reminder, our goal is to get back a user’s name from the /users/:username endpoint
-
-class login extends Component {
-
-  constructor () {
-    super()
-    this.state = {
-      username:''
-    }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick () {
-    this.setState({
-     showComponent: true,
-     title: 'Lista'
-    });
-    axios.get('https://api.github.com/users/sever567')
-     .then(response => this.setState({username: response.data.login}))
-    console.log('Success!')
-  }
-
-  render() {
-    return (
-      <DocumentTitle title={this.state.title}>
-      <div>
-      <h1 className="title_page">ABC</h1>
-
-      <div className='button__container'>
-        <div className='list_container'>
-           <ul>
-           <li>{this.state.username}</li>
-           </ul>
-         </div>
-         <button className='button' onClick={this.handleClick}>cazzo</button>
-      </div>
-      </div>
-      </DocumentTitle>
-
-    );
-  }
-}
-
-export default login
-*/
